@@ -1,0 +1,61 @@
+[
+  {
+    "operation": "drop_latest_records",
+    "paper_id": "10.1145/3637528.3671812",
+    "title": "Continuous Benchmark Evaluation for Enterprise Retrieval Pipelines",
+    "detail": "B\u1ecf r\u01a1i b\u00e0i b\u00e1o m\u1edbi nh\u1ea5t (published=2026-07-22)"
+  },
+  {
+    "operation": "drop_latest_records",
+    "paper_id": "10.1145/3637528.3671808",
+    "title": "Multi-Agent Consensus for High-Stakes Fact Verification",
+    "detail": "B\u1ecf r\u01a1i b\u00e0i b\u00e1o m\u1edbi nh\u1ea5t (published=2026-07-19)"
+  },
+  {
+    "operation": "drop_latest_records",
+    "paper_id": "10.1145/3637528.3671804",
+    "title": "Freshness SLAs for Real-Time LLM Knowledge Augmentation",
+    "detail": "B\u1ecf r\u01a1i b\u00e0i b\u00e1o m\u1edbi nh\u1ea5t (published=2026-07-05)"
+  },
+  {
+    "operation": "drop_latest_records",
+    "paper_id": "10.1145/3637528.3671807",
+    "title": "Synthetic Corruption Testing: Stress-Testing Vector Search Robustness",
+    "detail": "B\u1ecf r\u01a1i b\u00e0i b\u00e1o m\u1edbi nh\u1ea5t (published=2026-06-25)"
+  },
+  {
+    "operation": "blank_summary",
+    "paper_id": "10.1145/3637528.3671802",
+    "detail": "X\u00f3a r\u1ed7ng n\u1ed9i dung summary"
+  },
+  {
+    "operation": "blank_summary",
+    "paper_id": "10.1145/3637528.3671824",
+    "detail": "X\u00f3a r\u1ed7ng n\u1ed9i dung summary"
+  },
+  {
+    "operation": "inject_noise",
+    "paper_id": "10.1145/3637528.3671823",
+    "detail": "Ch\u00e8n k\u00fd t\u1ef1 r\u00e1c v\u00e0o summary: ' [CORRUPTED_NOISE: %$#@!?? INVALID_BYTE_SEQUENCE 0xFF 0xAA 0x99]'"
+  },
+  {
+    "operation": "truncate_title",
+    "paper_id": "10.1145/3637528.3671822",
+    "detail": "C\u1eaft ng\u1eafn ti\u00eau \u0111\u1ec1 t\u1eeb 'Advanced Perspectives on Automated Data Quality Profiling with Great Expectations in CI/CD' xu\u1ed1ng c\u00f2n 'Advan' (< 8 k\u00fd t\u1ef1)"
+  },
+  {
+    "operation": "stale_date",
+    "paper_id": "10.1145/3637528.3671821",
+    "detail": "L\u00f9i ng\u00e0y xu\u1ea5t b\u1ea3n t\u1eeb 2026-06-09 v\u1ec1 2025-06-09 (+365 ng\u00e0y tu\u1ed5i)"
+  },
+  {
+    "operation": "duplicate_rows",
+    "paper_id": "10.1145/3637528.3671810",
+    "detail": "Nh\u00e2n \u0111\u00f4i d\u00f2ng b\u1ea3n ghi \u0111\u1ec3 t\u1ea1o vi ph\u1ea1m tr\u00f9ng l\u1eb7p (duplicate)"
+  },
+  {
+    "operation": "duplicate_rows",
+    "paper_id": "10.1145/3637528.3671820",
+    "detail": "Nh\u00e2n \u0111\u00f4i d\u00f2ng b\u1ea3n ghi \u0111\u1ec3 t\u1ea1o vi ph\u1ea1m tr\u00f9ng l\u1eb7p (duplicate)"
+  }
+]
