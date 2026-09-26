@@ -8,51 +8,34 @@
 
 ## # Thành viên
 
-| STT | Họ và tên | MSSV | Email | Vai trò & Phân công công việc | Báo cáo cá nhân |
-|---:|---|---|---|---|---|
-| 1 | | | | Trưởng nhóm / Pipeline Integrator (`core/`, `phase1.py`, `corruption_flow.py`) | `report/<MSSV1>_HoTen.md` |
-| 2 | | | | Data Foundation & Recovery (`crossref.py`, `cleaning.py`, raw data) | `report/<MSSV2>_HoTen.md` |
-| 3 | | | | RAG & Vector Index (`retrieval/index.py`, `embeddings.py`, ChromaDB) | `report/<MSSV3>_HoTen.md` |
-| 4 | | | | Observability & Evaluation (`quality.py` GX 1.x, `testset.py`, reporting) | `report/<MSSV4>_HoTen.md` |
-
-*(Nếu nhóm có 3 hoặc 5-6 thành viên, xem bảng phân công chi tiết theo vai trò trong file `CHECKPOINTS.md`)*.
+| STT | Họ và tên | MSSV | Email | Vai trò & Phân công công việc | Báo cáo cá nhân | % Đóng góp |
+|---:|---|---|---|---|---|:---:|
+| 1 | Nguyễn Huy Cương | 2A202602842 | `cuong.nh@...` | **Trưởng nhóm / Data Ingestion, Corruption & Pipeline Integration** (Bước 2, 3, 6, 7 & `core/`, `src/ingestion/`, `src/pipelines/phase1.py`) | `report/2A202602842_NguyenHuyCuong.md` | 50% |
+| 2 | Trần Văn Khánh | 2A202602413 | `khanh.tv@...` | **Data Observability, RAG Retrieval & Evaluation / Recovery Specialist** (Bước 4, 5, 8 & `src/observability/`, `src/evaluation/`, `src/retrieval/`, `src/pipelines/corruption_flow.py`) | `report/2A202602413_TranVanKhanh.md` | 50% |
 
 ---
 
-## # Cá nhân
+## # Chi tiết đóng góp cá nhân
 
-### ## HoVaTen1-MSSV1
-- **Vai trò:** Trưởng nhóm & Điều phối Pipeline.
-- **Công việc chi tiết đã hoàn thành:**
-  - Thiết lập cấu hình hệ thống `core/config.py` và đường dẫn artifacts `core/utils.py`.
-  - Kết nối luồng thực thi trong `src/pipelines/phase1.py` và `src/pipelines/corruption_flow.py`.
-  - Kiểm tra tính nhất quán của các artifacts và theo dõi Contributor tracking trên GitHub nhánh `main`.
+### ## Nguyễn Huy Cương - 2A202602842
+- **Vai trò:** Trưởng nhóm, Phụ trách Data Ingestion, Cleaning, Corruption & Pipeline Integration.
+- **Công việc chi tiết phụ trách (theo `huongdan.md` & `CHECKPOINTS.md`):**
+  - **Khởi tạo & Cấu hình:** Thiết lập môi trường `.venv`, dependencies (`pyproject.toml`/`requirements.txt`), quản lý biến môi trường `.env`.
+  - **Bước 2 (CP0):** Thu thập dữ liệu API & Cất giữ bản gốc (`src/ingestion/crossref.py`). Hoàn thiện `parse_crossref_payload()` và `fetch_source_records()`, cơ chế fallback offline (`crossref_response.json`, `crossref_records.json`).
+  - **Bước 3 (CP1):** Làm sạch & Chuẩn bị văn bản Embedding (`src/ingestion/cleaning.py`). Hoàn thiện `build_clean_dataframe()`, chuẩn hóa văn bản, tính `age_days`, tạo `text_for_embedding`, khử trùng lặp `paper_id`.
+  - **Bước 6 (CP3):** Xây dựng và thực thi Baseline Pipeline Pha 1 (`src/pipelines/phase1.py`, `script/run_phase1.py`). Xuất báo cáo `data/reports/phase1_report.md` và kiểm chứng các artifact đầu ra.
+  - **Bước 7 (CP4):** Tiêm lỗi dữ liệu thực nghiệm (`src/ingestion/corruption.py`). Hoàn thiện `corrupt_clean_dataframe()` với 6 dạng lỗi, lưu `corruption_log.json`.
+  - **Bước 9:** Điều phối Git, rà soát bảo mật không leak API key, tổng hợp báo cáo nhóm `report/group_report.md` và hoàn thiện báo cáo cá nhân.
 - **Điều học được / Đóng góp chính:**
-  - Hiểu sâu sắc về thiết kế Idempotent Pipeline và quản lý trạng thái luồng dữ liệu đa tầng.
+  - Nắm vững kiến trúc Data Lineage Anchor, bảo toàn Raw Preservation, xử lý sự cố mạng với Fallback mechanism, và kỹ thuật tiêm lỗi (Data Corruption Injection) giả lập sự cố thực tế.
 
-### ## HoVaTen2-MSSV2
-- **Vai trò:** Phụ trách Ingestion, Làm sạch & Phục hồi dữ liệu.
-- **Công việc chi tiết đã hoàn thành:**
-  - Xây dựng module thu thập Crossref API với cơ chế Fallback offline trong `src/ingestion/crossref.py`.
-  - Chuẩn hóa schema, tính toán trường `age_days` và `text_for_embedding` trong `src/ingestion/cleaning.py`.
-  - Thực thi cơ chế Idempotent Repair phục hồi dữ liệu từ raw snapshot.
+### ## Trần Văn Khánh - 2A202602413
+- **Vai trò:** Kỹ sư Data Observability, RAG Retrieval & Benchmark Evaluation / Self-Healing.
+- **Công việc chi tiết phụ trách (theo `huongdan.md` & `CHECKPOINTS.md`):**
+  - **Bước 4 (CP1):** Thiết lập Chốt kiểm soát chất lượng với Great Expectations 1.x & Freshness SLA (`src/observability/quality.py`). Cấu hình Ephemeral Context, triển khai 4 Expectation bắt buộc và hàm `evaluate_freshness_sla()`.
+  - **Bước 5 (CP2):** Xây dựng bộ đề đánh giá chuẩn Benchmark Test Set (`src/evaluation/testset.py`). Hoàn thiện hàm `build_test_set()` sinh 10 câu hỏi Ground Truth qua 4 nhóm nghiệp vụ (`summary`, `authors`, `date`, `categories`), lưu `data/eval/test_set.json`.
+  - **RAG & Vector Database (CP2, CP3):** Quản lý embedding model `all-MiniLM-L6-v2`, ChromaDB collection indexing, đo lường retrieval Hit Rate và Token F1 score.
+  - **Bước 8 (CP5):** Đo lường suy giảm hiệu năng (Silent Failure), thực thi cơ chế phục hồi dữ liệu an toàn `repair_from_raw_snapshot()` và đối chiếu 3 trạng thái (`src/pipelines/corruption_flow.py`, `script/run_corruption_flow.py`, `data/reports/corruption_report.md`).
+  - **Bước 9 & Demo (CP6):** Chuẩn bị kịch bản và cùng trình diễn Live Demo (Checkpoint 6: bảng so sánh 3 trạng thái, giải thích cơ chế self-healing), rà soát nộp bài VLearn LMS và hoàn thiện báo cáo cá nhân.
 - **Điều học được / Đóng góp chính:**
-  - Kỹ thuật truy vết nguồn gốc dữ liệu (Data Lineage) và bảo toàn raw snapshot trước khi biến đổi.
-
-### ## HoVaTen3-MSSV3
-- **Vai trò:** Phụ trách RAG, Vector Database & Embedding.
-- **Công việc chi tiết đã hoàn thành:**
-  - Quản lý mô hình embedding `sentence-transformers/all-MiniLM-L6-v2`.
-  - Nạp và quản lý 3 collection riêng biệt trong ChromaDB (`papers-baseline`, `papers-corrupted`, `papers-repaired`).
-  - Xây dựng QA Agent truy vấn ngữ cảnh chính xác theo tài liệu.
-- **Điều học được / Đóng góp chính:**
-  - Cách cô lập các không gian vector để so sánh khách quan giữa dữ liệu sạch và dữ liệu bị lỗi.
-
-### ## HoVaTen4-MSSV4
-- **Vai trò:** Phụ trách Data Observability & Benchmark Evaluation.
-- **Công việc chi tiết đã hoàn thành:**
-  - Thiết lập Quality Gate theo chuẩn mới **Great Expectations 1.x** và giám sát Freshness SLA trong `src/observability/quality.py`.
-  - Xây dựng bộ câu hỏi đánh giá chuẩn trong `src/evaluation/testset.py`.
-  - Đo lường và xuất bảng đối chiếu 3 trạng thái vào `data/reports/corruption_report.md`.
-- **Điều học được / Đóng góp chính:**
-  - Cách thiết lập hệ thống cảnh báo sớm chặn đứng hiện tượng Silent Failure trước khi dữ liệu vào serving layer.
+  - Thành thạo Great Expectations 1.x chuẩn mới, phương pháp giám sát Data Drift & Freshness SLA, cơ chế Idempotent Self-Healing bảo vệ hệ thống RAG khỏi lỗi Silent Failure.
