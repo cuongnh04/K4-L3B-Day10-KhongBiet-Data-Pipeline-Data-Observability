@@ -92,4 +92,3 @@ def run_data_quality_checks(df: pd.DataFrame, settings: Settings, report_name: s
     write_json(report_file, result_payload)
 
     return result_payload
-

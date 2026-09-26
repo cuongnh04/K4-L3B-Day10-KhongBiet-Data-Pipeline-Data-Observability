@@ -50,4 +50,3 @@ def build_test_set(df: pd.DataFrame, output_path: Path | str) -> list[dict[str, 
     out_p = Path(output_path)
     write_json(out_p, test_set)
     return test_set
-
